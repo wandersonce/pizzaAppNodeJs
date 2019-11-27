@@ -1,0 +1,28 @@
+[
+    {
+        "size" : {
+            "small" : 10, 
+            "regular" : 15 , 
+            "big":  20 
+        },
+     
+        "crust": {
+            "thin" : 2 , 
+            "thick" : 2 , 
+            "deep" :  3 , 
+            "stuffed" :  3 
+        },
+
+      
+        "toppings": {
+            "pepperoni" :  2 , 
+            "onions" : 1 , 
+            "sausage" :  3 , 
+            "bacon" :  2 , 
+            "cheese" :  1 , 
+            "meat" :  4 , 
+            "chicken" :  3 , 
+            "tomatoes" :  1 
+        }
+    }
+]

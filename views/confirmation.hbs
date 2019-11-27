@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pizza App</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        .right {
+            height: 470px;
+        }
+
+        .headerPizza {
+            text-align: center;
+            font-size: 100px;
+            text-shadow: 5px 2px black;
+            color: red;
+        }
+
+        .btn {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .spanInfo {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: red;
+        }
+
+        table {
+            width: 40px;
+            display: inline;
+            margin: 10px;
+            text-align: center;
+        }
+
+        table tr th {
+            color: red;
+        }
+
+        .price tr {
+            color: green;
+        }
+
+    </style>
+</head>
+<!-- Using materialize grid to make the layout responsive and get some style -->
+
+<body class="yellow lighten-4">
+    <div class="container  yellow lighten-3">
+        <div class="row">
+            <div class="col s12 orange lighten-1">
+                <h1 class="headerPizza text-darken-2"> W's Pizza </h1>
+            </div>
+
+            <div class="col s6 z-depth-4 yellow lighten-3">
+                <h4>Order Detail:</h4>
+                <h6>Your pizza will be the <span class="spanInfo">{{size}}</span> one
+                    and your crust will be the <span class="spanInfo">{{crust}}</span> one.</h6>
+
+                <h5>Your pizza:</h5>
+                <table>
+                    <tr>
+                        <th>Options:</th>
+                    </tr>
+                    <tr>
+                        {{#each toppings}}
+                        <td>{{this}}</td>
+                    </tr>
+                    {{/each}}
+
+                    <tr>
+                        <td>{{size}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{crust}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Quantity</b></td>
+                    </tr>
+                </table>
+                <table class="price">
+                    <tr>
+                        <th>$:</th>
+                    </tr>
+                    <tr>
+                        {{#each pizzaPrice}}
+                        <td>{{this}}</td>
+                    </tr>
+                    {{/each}}
+                    <tr>
+                        <td>{{sizePrice}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{crustPrice}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>x{{qty}}</b></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>SUBTOTAL:</th>
+                    </tr>
+                    <tr>
+                        <td><b>{{suTotal}}</b></td>
+                    </tr>
+                    <tr>
+                        <th>TAXES:</th>
+                    </tr>
+                    <tr>
+                        <td><b>GST 7%: {{taxesValue}}</b></td>
+                    </tr>
+                    <tr>
+                        <th>TOTAL:</th>
+                    </tr>
+                    <tr>
+                        <td><b>{{totalValue}}</b></td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="col s6 z-depth-4 yellow lighten-3 right">
+                <h4>Billing details:</h4>
+                <h5>Hi <span class="spanInfo">{{firstName}} {{lastName}}</span>, thanks for the order.</h5>
+                <h6>{{firstName}} Your order will be delivery at <span class="spanInfo">{{address}}</span> and if we have some
+                    problem we can contact you by the phone <span class="spanInfo">{{phone}}</span>.
+                </h6>
+
+                <div class="allBill">
+                    <form id="formPost" action="/thankyou" method="POST">
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col s12 z-depth-4">
+                <h5>Please check your order details before confirm.</h5>
+                <button form="formPost" class="btn waves-effect pulse green lighten-1" type="submit" name="submit">Confirm
+                    <i class="material-icons right">done_all</i>
+                </button>
+                
+                    <button form="formGet" class="btn red lighten-1" formmethod="get" name="cancel">Cancel
+                        <i class="material-icons right">clear</i>
+                    </button>
+                <form action="/" method="get" id="formGet">
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+</html>

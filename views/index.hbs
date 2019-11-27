@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pizza App</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        .right {
+            height: 470px;
+        }
+
+        .headerPizza {
+            text-align: center;
+            font-size: 100px;
+            text-shadow: 5px 2px black;
+            color: red;
+        }
+
+        .btn {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        li {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<!-- Using materialize grid to make the layout responsive and get some style -->
+
+<body class="yellow lighten-4">
+    <div class="container  yellow lighten-3">
+        <div class="row">
+            <div class="col s12 orange lighten-1">
+                <h1 class="headerPizza text-darken-2"> W's Pizza </h1>
+            </div>
+
+            <div class="col s6 z-depth-4 yellow lighten-3">
+                <h4>Select your toppings:</h4>
+                <p>You must choose at least one topping!</p>
+                <form action="/confirmation" method="POST">
+                    {{#each pToppings}}
+                    <p>
+                        <label>
+                            <input name="toppings" value="{{this}}" type="checkbox" />
+                            <span>{{this}}</span>
+                        </label>
+                    </p>
+                    {{/each}}
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">add</i>
+                        <input id="qty" name="qty" type="number" class="validate" value="1" min="1" max="10">
+                        <label for="qty">Quantity</label>
+                    </div>
+            </div>
+            <div class="col s6 z-depth-4 yellow lighten-3 right">
+                <h4>Choose the crust type:</h4>
+                {{#each pCrust}}
+                <p>
+                    <label>
+                        <input name="crust" value="{{this}}" type="radio" checked />
+                        <span>{{this}}</span>
+                    </label>
+                </p>
+                {{/each}}
+                <h4>Choose your pizza size:</h4>
+                {{#each pSize}}
+                <p>
+                    <label>
+                        <input name="size" value="{{this}}" type="radio" checked />
+                        <span>{{this}}</span>
+                    </label>
+                </p>
+                {{/each}}
+            </div>
+
+            <div class="col s12 z-depth-4">
+                <h4>Billing information:</h4>                
+                <ul>
+                    <li>- All inputs are required</li>
+                    <li>- Phone must have only Numbers and 10 at total.</li>
+                    <li>- If any required is missing the page will back to begin.</li>
+                </ul>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="firstName" name="firstName" type="text" class="validate">
+                        <label for="firstName">Plese fill your First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="phone" name="phone" type="tel" class="validate">
+                        <label for="phone">Your phone just numbers(10 numbers)</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">keyboard_arrow_right</i>
+                        <input id="lastName" name="lastName" type="text" class="validate">
+                        <label for="lastName" >Plese fill your Last Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">person_pin_circle</i>
+                        <input id="address" name="address" type="text" class="validate">
+                        <label for="address">Plese fill your Address</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect pulse orange lighten-1" type="submit" name="submit">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

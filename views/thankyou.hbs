@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ThankYou</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        h3 {
+            text-align: center;
+        }
+
+        h5 {
+            text-align: center;
+        }
+
+        span {
+            color: red;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .name {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="yellow lighten-4">
+    <div class="container  yellow lighten-3">
+        <div class="row">
+
+            <div class="col s12 z-depth-4">
+                <h3>THANK YOU FOR YOUR ORDER</h3>
+
+                <h5><span class="name">{{firstName}} {{lastName}}</span> Your order was confirmed and will take
+                    approximate
+                    <span>45min</span> to delivery it!
+                </h5>
+                <form id="formGet" action="/" method="get"></form>
+                <button form="formGet" class="btn blue lighten-1" type="submit" >Home
+                    <i class="material-icons right">home</i>
+                </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
